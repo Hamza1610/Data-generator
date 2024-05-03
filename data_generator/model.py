@@ -42,7 +42,7 @@ class Model:
         self.data_structure, self.data_desciption = data_structure, data_desciption
         # Initialize Generative GEMINI Model with its safety settings
         model = genai.GenerativeModel('gemini-pro', generation_config=model_config["generation_config"], safety_settings=model_config["safety_settings"])
-        response = model.generate_content(f'You are a data generator, and I want you to generate correct data in json format of [{data_desciption}, with features of {data_structure}]. make sure the data are corrects and structured!. Note these data will be used for training models')
+        response = model.generate_content(f'Gnenerate correct data in csv format of [{data_desciption}, with features of {data_structure}]. make sure the data are corrects and structured!. Note these data will be used for training models')
         # generated data
         return response.parts
         try:

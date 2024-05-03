@@ -8,5 +8,5 @@ data_generator = Model(api_key)
 
 data = data_generator.generate([2,10], ['typical windows,linux and mac-os shell commands in words', 'commands'])
 
-f = open('demofile.txt', 'a')
+f = open('demofile.csv', 'a')
 f.write(str(data))
