@@ -1,0 +1,2 @@
+[text: "| typical windows,linux and mac-os shell commands in words | commands |\n|---|---|\n| list all files in current directory | ls |\n| change directory | cd |\n| create a new directory | mkdir |\n| delete a directory | rmdir |\n| copy a file | cp |\n| move a file | mv |\n| rename a file | rename |\n| delete a file | rm |\n| open a file | open |\n| edit a file | edit |\n| search for a file | find |\n| print the contents of a file | cat |\n| get help on a command | help |"
+]
