@@ -42,9 +42,14 @@ class Model:
         self.data_structure, self.data_desciption = data_structure, data_desciption
         # Initialize Generative GEMINI Model with its safety settings
         model = genai.GenerativeModel('gemini-pro', generation_config=model_config["generation_config"], safety_settings=model_config["safety_settings"])
-        response = model.generate_content(f'Gnenerate correct data in csv format of [{data_desciption}, with features of {data_structure}]. make sure the data are corrects and structured!. Note these data will be used for training models')
+        # generate data with structure
+        response = model.generate_content({
+            'data_desciption': data_desciption,
+            'cols': data_structure['cols'],
+            'rows': data_structure['rows']
+        })
         # generated data
-        return response.parts
+        return response.text
         try:
             # # Initialize Generative GEMINI Model with its safety settings
             # model = genai.GenerativeModel('gemini-pro', generation_config=model_config.generation_config, safety_settings=model_config.safety_settings)
@@ -55,7 +60,7 @@ class Model:
         except:
             print('Error occured while generating data!')
 
-    def validate(self, data):
+    def validate(self, data_structure, data_desciption):
         """_summary_
 
         Args:
@@ -64,12 +69,16 @@ class Model:
         Returns:
             _type_: _description_
         """
-        self.data = data
+        self.data_structure, self.data_desciption = data_structure, data_desciption
         try:
             # Initialize Generative GEMINI Model
             model = genai.GenerativeModel('gemini-pro', generation_config=model_config.generation_config, safety_settings=model_config.safety_settings)
-            response = model.generate_content()
+            response = model.generate_content({
+            'data_desciption': data_desciption,
+            'cols': data_structure['cols'],
+            'rows': data_structure['rows']
+        })
             # validated data
-            return response.parts
+            return response.text
         except:
             print('Error occured while validating data!')
