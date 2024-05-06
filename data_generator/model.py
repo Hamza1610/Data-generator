@@ -43,11 +43,13 @@ class Model:
         # Initialize Generative GEMINI Model with its safety settings
         model = genai.GenerativeModel('gemini-pro', generation_config=model_config["generation_config"], safety_settings=model_config["safety_settings"])
         # generate data with structure
-        response = model.generate_content({
+        # response = model.generate_content('Hello!')
+        content = {
             'data_desciption': data_desciption,
             'cols': data_structure['cols'],
             'rows': data_structure['rows']
-        })
+        }
+        response = model.generate_content(str(content))
         # generated data
         return response.text
         try:
