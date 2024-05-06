@@ -1,6 +1,7 @@
 from extension import isformat
 import os
 
+
 class File_manager:
     """_summary_: Create file, delete, update
     """
@@ -78,7 +79,7 @@ class File_manager:
                 f.close()
             else:
                 with open(self.filename, 'a') as f:
-                    f.seek(-1)
+                    f.seek(position)
                     f.write(self.update)
                     f.close()
       else:
