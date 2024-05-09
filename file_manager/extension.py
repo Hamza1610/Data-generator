@@ -1,4 +1,3 @@
-
 def isformat(filename):
     ext = ['.json', '.csv','.txt','.xlsx']
     if filename and type(filename) == str:
